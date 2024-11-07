@@ -1,1 +1,6 @@
-<p>cake-builder works!</p>
+<!-- src/app/cake-builder/cake-builder.component.html -->
+<div *ngFor="let layer of layers; let i = index">
+    <app-cake-layer [layer]="layer"></app-cake-layer>
+    <button (click)="deleteLayer(i)">Delete</button>
+  </div>
+  
