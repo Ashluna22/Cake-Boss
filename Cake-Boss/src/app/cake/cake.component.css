@@ -1,0 +1,6 @@
+.cake-container {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  padding: 20px;
+}

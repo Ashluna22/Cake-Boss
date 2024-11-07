@@ -1,1 +1,5 @@
-<p>cake works!</p>
+<div class="cake-container">
+  @for (layer of layers; track $index) {
+    <app-cake-layer [layer]="layer" />
+  }
+</div>
