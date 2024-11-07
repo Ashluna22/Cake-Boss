@@ -1,4 +1,3 @@
-// src/app/cake-builder/layer-form/layer-form.component.ts
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Layer } from '../../models/layer.model';

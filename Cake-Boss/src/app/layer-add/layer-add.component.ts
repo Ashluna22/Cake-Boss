@@ -1,4 +1,3 @@
-// src/app/cake-builder/layer-add/layer-add.component.ts
 import { Component } from '@angular/core';
 import { LayerService } from '../../services/layer.service';
 import { CommonModule } from '@angular/common';
