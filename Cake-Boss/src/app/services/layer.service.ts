@@ -1,22 +1,22 @@
 // src/app/services/layer.service.ts
 import { Injectable } from '@angular/core';
-import { Layer } from '../models/layer.model';
+import { Layer } from '../models/layer.model';  // Ensure this path is correct
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root',
 })
 export class LayerService {
-    private layers: Layer[] = [];
+  private layers: Layer[] = [];
 
-    addLayer(layer: Layer): void {
-        this.layers.push(layer);
-    }
+  addLayer(layer: Layer): void {
+    this.layers.push(layer);
+  }
 
-    deleteLayer(index: number): void {
-        this.layers.splice(index, 1);
-    }
+  deleteLayer(index: number): void {
+    this.layers.splice(index, 1);
+  }
 
-    getLayers(): Layer[] {
-        return [...this.layers];
-    }
+  getLayers(): Layer[] {
+    return [...this.layers];
+  }
 }

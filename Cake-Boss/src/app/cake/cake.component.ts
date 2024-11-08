@@ -1,4 +1,3 @@
-// src/app/cake.component.ts
 import { Component } from '@angular/core';
 import { LayerService } from '../services/layer.service';
 import { CakeLayerComponent } from './cake-layer/cake-layer.component';

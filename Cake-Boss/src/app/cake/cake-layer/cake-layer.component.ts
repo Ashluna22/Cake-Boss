@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { CakeLayer } from '../models/layer.model';
-
 @Component({
   selector: 'app-cake-layer',
   standalone: true,

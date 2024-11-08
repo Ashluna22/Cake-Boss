@@ -3,19 +3,20 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
-import { LayerFormComponent } from './layerform/layerform.component';
-import { LayerAddComponent } from './layeradd/layeradd.component';
+import { LayerFormComponent } from './layer-form/layer-form.component';
+import { LayerAddComponent } from './layer-add/layer-add.component';
+import { LayerBuilderComponent } from './layer-builder/layer-builder.component';
 
 @NgModule({
   declarations: [
-    LayerFormComponent,  // Declare LayerFormComponent here
-    LayerAddComponent,   // Declare LayerAddComponent here
-    // Any other components...
+    LayerFormComponent,
+    LayerAddComponent,
+    LayerBuilderComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    FormsModule, // Required for ngModel in LayerFormComponent
   ],
-  bootstrap: [/* Root component here */]
 })
 export class AppModule {}
+

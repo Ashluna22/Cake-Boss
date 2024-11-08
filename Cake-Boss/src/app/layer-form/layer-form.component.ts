@@ -1,8 +1,12 @@
+// src/app/layer-form/layer-form.component.ts
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Layer } from '../models/layer.model';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-layer-form',
+  standalone: true,
+  imports: [FormsModule],
   template: `
     <form (ngSubmit)="onSave()">
       <input type="number" [(ngModel)]="height" placeholder="Height" min="0.5" max="10" required>
@@ -11,7 +15,7 @@ import { Layer } from '../models/layer.model';
         <option *ngFor="let color of colors" [value]="color">{{ color }}</option>
       </select>
       <button type="submit">Save</button>
-      <button type="button" (click)="onCancel()">Cancel</button>
+      <button type="button" (click)="cancel.emit()">Cancel</button>
     </form>
   `,
 })
@@ -26,9 +30,5 @@ export class LayerFormComponent {
 
   onSave(): void {
     this.save.emit({ height: this.height, width: this.width, color: this.color });
-  }
-
-  onCancel(): void {
-    this.cancel.emit();
   }
 }

@@ -1,8 +1,18 @@
+// src/app/cake-builder/cake-builder.component.spec.ts
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CakeBuilderComponent } from './cake-builder.component';
-import { CakeLayerComponent } from '../cake-layer/cake-layer.component';
-import { LayerService } from '../layer.service';
+import { LayerService } from '../services/layer.service';  // Adjusted path
 import { CommonModule } from '@angular/common';
+
+import { AppModule } from '../app.module';
+
+await TestBed.configureTestingModule({
+  imports: [CommonModule, AppModule],  // Import AppModule if it includes CakeLayerComponent
+  declarations: [CakeBuilderComponent],
+  providers: [LayerService]
+}).compileComponents();
+
+
 
 describe('CakeBuilderComponent', () => {
   let component: CakeBuilderComponent;
