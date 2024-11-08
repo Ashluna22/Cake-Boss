@@ -1,13 +1,11 @@
+// src/app/app.component.ts
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CakeBuilderComponent } from './cake-builder/cake-builder.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [CakeBuilderComponent],  // Directly import standalone component
+  template: '<app-cake-builder></app-cake-builder>',
 })
-export class AppComponent {
-  title = 'Cake-Boss';
-}
+export class AppComponent {}

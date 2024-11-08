@@ -1,8 +1,9 @@
-// CakeColor enum and CakeLayer interface
-
+// src/app/cake.component.ts
 import { Component } from '@angular/core';
-import { LayerService } from './layer.service';
+import { LayerService } from '../services/layer.service';
 import { CakeLayerComponent } from './cake-layer/cake-layer.component';
+import { CommonModule } from '@angular/common';
+
 
 export enum CakeColor {
   VANILLA = 'vanilla',
@@ -14,19 +15,17 @@ export enum CakeColor {
 }
 
 export interface CakeLayer {
-  height: number;  // in inches, between 0.5 and 10
-  width: number;   // in inches, between 1 and 10
+  height: number;
+  width: number;
   color: CakeColor;
 }
-
-// npm install tslib quick fix
 
 @Component({
   selector: 'app-cake',
   standalone: true,
-  imports: [CakeLayerComponent],
+  imports: [CommonModule, CakeLayerComponent],
   templateUrl: './cake.component.html',
-  styleUrl: './cake.component.css'
+  styleUrls: ['./cake.component.css']
 })
 export class CakeComponent {
   constructor(private layerService: LayerService) {}
@@ -35,3 +34,4 @@ export class CakeComponent {
     return this.layerService.getLayers();
   }
 }
+

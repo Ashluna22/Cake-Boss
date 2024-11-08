@@ -1,16 +1,24 @@
+// src/app/layerbuilder/layerbuilder.component.ts
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Layer } from '../layer.model';
+import { Layer } from '../models/layer.model';
 
 @Component({
-  selector: 'app-layer-builder',
-  templateUrl: './layer-builder.component.html',
-  styleUrls: ['./layer-builder.component.css']
+    selector: 'app-layer-builder',
+    template: `
+        <div class="layer-builder">
+            <p>Height: {{ layer.height }}</p>
+            <p>Width: {{ layer.width }}</p>
+            <p>Color: {{ layer.color }}</p>
+            <button (click)="onDelete()">Delete</button>
+        </div>
+    `,
+    styles: ['.layer-builder { border: 1px solid #ccc; padding: 1em; margin-bottom: 1em; }']
 })
 export class LayerBuilderComponent {
-  @Input() layer!: Layer;
-  @Output() delete = new EventEmitter<void>();
+    @Input() layer!: Layer;
+    @Output() delete = new EventEmitter<void>();
 
-  onDelete() {
-    this.delete.emit();
-  }
+    onDelete(): void {
+        this.delete.emit();
+    }
 }

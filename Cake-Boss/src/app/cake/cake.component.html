@@ -1,5 +1,3 @@
 <div class="cake-container">
-  @for (layer of layers; track $index) {
-    <app-cake-layer [layer]="layer" />
-  }
+  <app-cake-layer *ngFor="let layer of layers; trackBy: trackByFn" [layer]="layer"></app-cake-layer>
 </div>

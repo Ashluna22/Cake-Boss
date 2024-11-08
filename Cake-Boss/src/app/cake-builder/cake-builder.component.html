@@ -1,6 +1,28 @@
-<!-- src/app/cake-builder/cake-builder.component.html -->
-<div *ngFor="let layer of layers; let i = index">
-    <app-cake-layer [layer]="layer"></app-cake-layer>
+<div>
+  <h2>Cake Builder</h2>
+
+  <!-- Form for adding a new layer -->
+  <div>
+    <label>Height:
+      <input type="number" [(ngModel)]="newLayer.height" min="0.5" max="10">
+    </label>
+    <label>Width:
+      <input type="number" [(ngModel)]="newLayer.width" min="1" max="10">
+    </label>
+    <label>Color:
+      <select [(ngModel)]="newLayer.color">
+        <option *ngFor="let color of Object.values(CakeColor)" [value]="color">{{ color }}</option>
+      </select>
+    </label>
+    <button (click)="addLayer()">Add Layer</button>
+  </div>
+
+  <!-- Display the cake with layers -->
+  <app-cake></app-cake>
+
+  <!-- Delete buttons for each layer -->
+  <div *ngFor="let layer of layers; let i = index">
+    <span>{{ layer.color }} - Height: {{ layer.height }}, Width: {{ layer.width }}</span>
     <button (click)="deleteLayer(i)">Delete</button>
   </div>
-  
+</div>

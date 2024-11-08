@@ -1,28 +1,34 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Layer } from '../../models/layer.model';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Layer } from '../models/layer.model';
 
 @Component({
   selector: 'app-layer-form',
-  templateUrl: './layer-form.component.html',
-  styleUrls: ['./layer-form.component.css'],
-  standalone: true,
-  imports: [FormsModule]
+  template: `
+    <form (ngSubmit)="onSave()">
+      <input type="number" [(ngModel)]="height" placeholder="Height" min="0.5" max="10" required>
+      <input type="number" [(ngModel)]="width" placeholder="Width" min="1" max="10" required>
+      <select [(ngModel)]="color">
+        <option *ngFor="let color of colors" [value]="color">{{ color }}</option>
+      </select>
+      <button type="submit">Save</button>
+      <button type="button" (click)="onCancel()">Cancel</button>
+    </form>
+  `,
 })
 export class LayerFormComponent {
-  height: number = 1;
-  width: number = 1;
-  color: string = '#ffffff';
-
   @Output() save = new EventEmitter<Layer>();
   @Output() cancel = new EventEmitter<void>();
 
-  onSave() {
-    const newLayer: Layer = {
-      height: this.height,
-      width: this.width,
-      color: this.color
-    };
-    this.save.emit(newLayer);
+  height = 1;
+  width = 1;
+  color = 'red';
+  colors = ['red', 'blue', 'green', 'yellow', 'purple'];
+
+  onSave(): void {
+    this.save.emit({ height: this.height, width: this.width, color: this.color });
+  }
+
+  onCancel(): void {
+    this.cancel.emit();
   }
 }

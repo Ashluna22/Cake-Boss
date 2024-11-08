@@ -1,22 +1,24 @@
-import { Component } from '@angular/core';
-import { LayerService } from '../../services/layer.service';
-import { CommonModule } from '@angular/common';
-import { LayerFormComponent } from '../layer-form/layer-form.component';
+// src/app/layeradd/layeradd.component.ts
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Layer } from '../models/layer.model';  // Import the Layer interface
 
 @Component({
-  selector: 'app-layer-add',
-  templateUrl: './layer-add.component.html',
-  styleUrls: ['./layer-add.component.css'],
-  standalone: true,
-  imports: [CommonModule, LayerFormComponent]
+    selector: 'app-layer-add',
+    template: `
+        <button (click)="toggleForm()">Add Layer</button>
+        <app-layer-form *ngIf="showForm" (save)="onSave($event)" (cancel)="toggleForm()"></app-layer-form>
+    `
 })
 export class LayerAddComponent {
-  showForm = false;
+    @Output() addLayer = new EventEmitter<Layer>();
+    showForm = false;
 
-  constructor(private layerService: LayerService) {}
+    toggleForm(): void {
+        this.showForm = !this.showForm;
+    }
 
-  addLayer(layer: Layer) {
-    this.layerService.addLayer(layer);
-    this.showForm = false;
-  }
+    onSave(layer: Layer): void {
+        this.addLayer.emit(layer);
+        this.toggleForm();
+    }
 }
