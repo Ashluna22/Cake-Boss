@@ -1,6 +1,14 @@
-// src/main.ts
+import { enableProdMode } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
 
-bootstrapApplication(AppComponent)
-  .catch(err => console.error(err));
+
+if (environment.production) {
+  enableProdMode();
+}
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    // Add global providers here if needed
+  ]
+}).catch(err => console.error(err));

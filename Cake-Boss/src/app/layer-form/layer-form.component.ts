@@ -1,12 +1,12 @@
 // src/app/layer-form/layer-form.component.ts
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Layer } from '../models/layer.model';
 import { FormsModule } from '@angular/forms';
+import { Layer } from '../models/layer.model';
 
 @Component({
   selector: 'app-layer-form',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule],  // Include FormsModule for ngModel
   template: `
     <form (ngSubmit)="onSave()">
       <input type="number" [(ngModel)]="height" placeholder="Height" min="0.5" max="10" required>
