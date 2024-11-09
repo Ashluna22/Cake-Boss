@@ -1,23 +1,12 @@
+// array of layers
+// the cake is the sum of all the layers
+
+// this component displays the entire cake with all the layers
+
 import { Component } from '@angular/core';
 import { LayerService } from '../services/layer.service';
 import { CakeLayerComponent } from './cake-layer/cake-layer.component';
 import { CommonModule } from '@angular/common';
-
-
-export enum CakeColor {
-  VANILLA = 'vanilla',
-  CHOCOLATE = 'chocolate',
-  STRAWBERRY = 'strawberry',
-  BLUEBERRY = 'blueberry',
-  MINT = 'mint',
-  LEMON = 'lemon'
-}
-
-export interface CakeLayer {
-  height: number;
-  width: number;
-  color: CakeColor;
-}
 
 @Component({
   selector: 'app-cake',

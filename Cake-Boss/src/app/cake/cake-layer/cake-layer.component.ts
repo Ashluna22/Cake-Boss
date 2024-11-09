@@ -1,3 +1,8 @@
+// displays a single layer of the cake
+// the layer has a height, width, and color
+
+
+
 import { Component, Input } from '@angular/core';
 import { CakeLayer } from '../models/layer.model';
 @Component({

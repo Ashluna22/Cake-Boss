@@ -1,4 +1,4 @@
-/* summary: This file contains the CSS code for a single layer of cake. It includes styles for the layer, its content, and its actions. */
+/* styles for the layer of the cake */
 
 .cake-layer {
     width: 200px;
@@ -23,7 +23,7 @@
     cursor: pointer;
 }
 
-/* Flavor-specific colors - you can expand these based on your needs */
+/* colors */
 .vanilla {
     background-color: #fff5e6;
     border: 2px solid #ffe0b3;
