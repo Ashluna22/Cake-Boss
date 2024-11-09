@@ -3,10 +3,11 @@
 
 // this component displays the entire cake with all the layers
 
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { LayerService } from '../services/layer.service';
 import { CakeLayerComponent } from './cake-layer/cake-layer.component';
 import { CommonModule } from '@angular/common';
+import { CakeLayer } from '../models/layer.model';
 
 @Component({
   selector: 'app-cake',
@@ -16,9 +17,11 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./cake.component.css']
 })
 export class CakeComponent {
-  constructor(private layerService: LayerService) {}
+  @Input() layers!: CakeLayer[];
 
-  get layers(): CakeLayer[] {
+  constructor(public layerService: LayerService) {}
+
+  get selectedLayers(): CakeLayer[] {
     return this.layerService.getLayers();
   }
 }

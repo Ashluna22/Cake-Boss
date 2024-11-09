@@ -1,26 +1,13 @@
 // displays a single layer of the cake
 // the layer has a height, width, and color
 
-
-
 import { Component, Input } from '@angular/core';
-import { CakeLayer } from '../models/layer.model';
+import { CakeLayer } from '../../models/layer.model';
 @Component({
   selector: 'app-cake-layer',
   standalone: true,
-  template: `
-    <div class="cake-layer" 
-         [style.height.px]="layer.height * 20"
-         [style.width.px]="layer.width * 20"
-         [style.backgroundColor]="layer.color">
-    </div>
-  `,
-  styles: [`
-    .cake-layer {
-      border: 1px solid #000;
-      margin: 0 auto;
-    }
-  `]
+  templateUrl: `./cake-layer.component.html`,
+  styleUrls: [`./cake-layer.component.css`]
 })
 export class CakeLayerComponent {
   @Input() layer!: CakeLayer;

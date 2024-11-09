@@ -1,4 +1,8 @@
 /* styles for the layer of the cake */
+.cake-layer {
+    border: 1px solid #000;
+    margin: 0 auto;
+}
 
 .cake-layer {
     width: 200px;

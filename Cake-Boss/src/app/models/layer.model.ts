@@ -1,4 +1,4 @@
-export interface Layer {
+export interface CakeLayer {
   height: number;
   width: number;
   color: string;

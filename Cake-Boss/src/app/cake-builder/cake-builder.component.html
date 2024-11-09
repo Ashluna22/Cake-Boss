@@ -1,3 +1,22 @@
+<div class="builder-container">
+  <div class="builder-panel">
+    <h3>Add A Layer</h3>
+    <app-layer-add (addLayer)="addLayer($event)"></app-layer-add>
+    
+    <div *ngFor="let layer of layers; let i = index" class="layer-controls">
+      <app-layer-builder
+        [layer]="layer"
+        (delete)="deleteLayer(i)"
+        (update)="updateLayer(i, $event)">
+      </app-layer-builder>
+    </div>
+  </div>
+  
+  <div class="cake-preview">
+    <app-cake [layers]="layers"></app-cake>
+  </div>
+</div>
+
 <div>
   <h2>Cake Builder</h2>
 
@@ -14,7 +33,7 @@
         <option *ngFor="let color of Object.values(CakeColor)" [value]="color">{{ color }}</option>
       </select>
     </label>
-    <button (click)="addLayer()">Add Layer</button>
+    <button (click)="addLayer(layer)">Add Layer</button>
   </div>
 
   <!-- Display the cake with layers -->

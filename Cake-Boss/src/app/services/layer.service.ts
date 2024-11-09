@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Layer } from '../models/layer.model';
+import { CakeLayer } from '../models/layer.model';
 
 @Injectable({ providedIn: 'root' })
-export class LayerService {
-  private layers: Layer[] = [];
 
-  addLayer(layer: Layer) {
+export class LayerService {
+  private layers: CakeLayer[] = [];
+
+  addLayer(layer: CakeLayer) {
     this.layers.push(layer);
   }
 

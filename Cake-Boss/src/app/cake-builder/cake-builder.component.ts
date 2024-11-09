@@ -1,44 +1,41 @@
 // src/app/cake-builder/cake-builder.component.ts
-import { Component } from '@angular/core';
-import { Layer } from '../models/layer.model';
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { CakeLayer } from '../models/layer.model';
 import { LayerService } from '../services/layer.service';
-import { LayerAddComponent } from '../layer-add/layer-add.component';
-import { LayerBuilderComponent } from '../layer-builder/layer-builder.component';
+import { LayerAddComponent } from './layer-add/layer-add.component';
+import { LayerBuilderComponent } from './layer-builder/layer-builder.component';
 import { CakeComponent } from '../cake/cake.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-cake-builder',
-  template: `
-    <div class="builder-container">
-      <div class="builder-panel">
-        <h3>Add A Layer</h3>
-        <app-layer-add (addLayer)="addLayer($event)"></app-layer-add>
-        
-        <div *ngFor="let layer of layers; let i = index" class="layer-controls">
-          <app-layer-builder
-            [layer]="layer"
-            (delete)="deleteLayer(i)"
-            (update)="updateLayer(i, $event)">
-          </app-layer-builder>
-        </div>
-      </div>
-      
-      <div class="cake-preview">
-        <app-cake [layers]="layers"></app-cake>
-      </div>
-    </div>
-  `,
+  standalone: true,
+  templateUrl: `./cake-builder.component.html`,
   styleUrls: ['./cake-builder.component.css'],
-  imports: [LayerAddComponent, LayerBuilderComponent, CakeComponent], // Import standalone components
+  imports: [LayerAddComponent, LayerBuilderComponent, CakeComponent, FormsModule, CommonModule], // Import standalone components
 })
 export class CakeBuilderComponent {
-  layers: Layer[] = [];
+  @Input() layer!: CakeLayer;
+  layers: CakeLayer[] = [];
+
+  newLayer: {
+    height: number,
+    width: number,
+    color: string
+  } = {
+    height: 0,
+    width: 0,
+    color: ""
+  }
+Object: any;
+CakeColor: any;
 
   constructor(private layerService: LayerService) {
     this.layers = this.layerService.getLayers();
   }
 
-  addLayer(layer: Layer) {
+  addLayer(layer: CakeLayer) {
     this.layerService.addLayer(layer);
     this.layers = this.layerService.getLayers();
   }
@@ -48,7 +45,7 @@ export class CakeBuilderComponent {
     this.layers = this.layerService.getLayers();
   }
 
-  updateLayer(index: number, updatedLayer: Layer) {
+  updateLayer(index: number, updatedLayer: CakeLayer) {
     this.layers[index] = updatedLayer;
   }
 }
