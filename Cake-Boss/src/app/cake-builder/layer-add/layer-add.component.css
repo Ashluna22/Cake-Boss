@@ -5,35 +5,36 @@ div {
 div .form-group {
     display: flex;
     align-items: center;
-    margin-bottom: 5px;
 }
 
 label {
     font-weight: bold;
-    margin-right: 0px;
-    font-weight: bold;
     flex-shrink: 0;
+    /* Prevent shrinking of the label */
 }
 
 span {
-    margin-right: 0px;
     width: 40px;
+    /* Adjust width as needed */
     text-align: center;
 }
 
 input[type="color"] {
     flex-shrink: 0;
-    margin-left: 10px;
-    width: 75%;
+    width: 83%;
 }
 
 input[type="range"] {
     flex-grow: 1;
-    margin-right: 5px;
 }
+
+div .container {
+    width: 100%;
+}
+
 
 button {
     margin-right: 5px;
-    margin-top: 10px;
+    margin-top: 5px;
     display: inline-block;
 }
