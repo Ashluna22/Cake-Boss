@@ -23,13 +23,12 @@ export class CakeBuilderComponent {
     height: number,
     width: number,
     color: string
-  } = {
+} = {
     height: 0,
     width: 0,
     color: ""
-  }
-Object: any;
-CakeColor: any;
+}
+
 
   constructor(private layerService: LayerService) {
     this.layers = this.layerService.getLayers();

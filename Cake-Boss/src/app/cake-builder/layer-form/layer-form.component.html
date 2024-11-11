@@ -1,20 +1,35 @@
 <form (ngSubmit)="onSave()">
-  <input type="number" [(ngModel)]="height" placeholder="Height" min="0.5" max="10" required>
-  <input type="number" [(ngModel)]="width" placeholder="Width" min="1" max="10" required>
-  <select [(ngModel)]="color">
+  <label for="height">Height:</label>
+  <input
+    id="height"
+    type="number"
+    [(ngModel)]="height"
+    name="height"
+    placeholder="Height"
+    min="0.5"
+    max="10"
+    step="0.1"
+    required
+  />
+
+  <label for="width">Width:</label>
+  <input
+    id="width"
+    type="number"
+    [(ngModel)]="width"
+    name="width"
+    placeholder="Width"
+    min="1"
+    max="10"
+    step="0.1"
+    required
+  />
+
+  <label for="color">Color:</label>
+  <select [(ngModel)]="color" name="color" required>
     <option *ngFor="let color of colors" [value]="color">{{ color }}</option>
   </select>
+
   <button type="submit">Save</button>
   <button type="button" (click)="cancel.emit()">Cancel</button>
 </form>
-
-<div class="layer-form">
-  <input type="number" [(ngModel)]="height" min="0.5" max="10" step="0.1" placeholder="Height">
-  <input type="number" [(ngModel)]="width" min="1" max="10" step="0.1" placeholder="Width">
-  <input type="color" [(ngModel)]="color" placeholder="Color">
-  <button (click)="onSave()">Save</button>
-  <button (click)="cancel.emit()">Cancel</button>
-</div>
-
-  
-  

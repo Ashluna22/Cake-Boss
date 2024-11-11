@@ -2,16 +2,17 @@
   <div class="builder-panel">
     <h3>Add A Layer</h3>
     <app-layer-add (addLayer)="addLayer($event)"></app-layer-add>
-    
+
     <div *ngFor="let layer of layers; let i = index" class="layer-controls">
       <app-layer-builder
         [layer]="layer"
         (delete)="deleteLayer(i)"
-        (update)="updateLayer(i, $event)">
+        (update)="updateLayer(i, $event)"
+      >
       </app-layer-builder>
     </div>
   </div>
-  
+
   <div class="cake-preview">
     <app-cake [layers]="layers"></app-cake>
   </div>
@@ -22,15 +23,20 @@
 
   <!-- Form for adding a new layer -->
   <div>
-    <label>Height:
-      <input type="number" [(ngModel)]="newLayer.height" min="0.5" max="10">
+    <label
+      >Height:
+      <input type="number" [(ngModel)]="newLayer.height" min="0.5" max="10" />
     </label>
-    <label>Width:
-      <input type="number" [(ngModel)]="newLayer.width" min="1" max="10">
+    <label
+      >Width:
+      <input type="number" [(ngModel)]="newLayer.width" min="1" max="10" />
     </label>
-    <label>Color:
+    <label
+      >Color:
       <select [(ngModel)]="newLayer.color">
-        <option *ngFor="let color of Object.values(CakeColor)" [value]="color">{{ color }}</option>
+        <!--<option *ngFor="let color of Object.values(CakeColor)" [value]="color">  ***This is breaking things, its looking for something related to colors that doesnt exist.
+          {{ color }}
+        </option> -->
       </select>
     </label>
     <button (click)="addLayer(layer)">Add Layer</button>
@@ -40,8 +46,14 @@
   <app-cake></app-cake>
 
   <!-- Delete buttons for each layer -->
-  <div *ngFor="let layer of layers; let i = index">
-    <span>{{ layer.color }} - Height: {{ layer.height }}, Width: {{ layer.width }}</span>
+  <div>
+    @for (layer of layers;track layer; let i = $index) {
+    <span
+      >{{ layer.color }} - Height: {{ layer.height }}, Width:{{
+        layer.width
+      }}</span
+    >
     <button (click)="deleteLayer(i)">Delete</button>
+    }
   </div>
 </div>

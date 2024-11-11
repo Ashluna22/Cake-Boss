@@ -1,3 +1,3 @@
 <div class="cake-container">
-  <app-cake-layer *ngFor="let layer of layers; track $Index" [layer]="layer"></app-cake-layer>
+  <!-- <app-cake-layer *ngFor="let layer of layers; track $Index" [layer]="layer"></app-cake-layer>  ***This is breaking things as its looking for layers that dont exist yet -->
 </div>
