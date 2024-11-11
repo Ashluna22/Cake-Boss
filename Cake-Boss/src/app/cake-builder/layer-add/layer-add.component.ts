@@ -14,6 +14,7 @@ import { LayerFormComponent } from '../layer-form/layer-form.component';
 export class LayerAddComponent {
   @Output() addLayer = new EventEmitter<any>();
   @Output() save = new EventEmitter();
+  @Output() cancel = new EventEmitter();
   showForm = false;
   newLayer = { color: '#ffffff', width: 5, height: 5 };
 
@@ -23,6 +24,11 @@ export class LayerAddComponent {
 
   submitLayer() {
     this.addLayer.emit({ ...this.newLayer });
+    this.toggleForm();
+  }
+
+  cancelLayer() {
+    this.newLayer = { color: '#ffffff', width: 5, height: 5 };
     this.toggleForm();
   }
 }
