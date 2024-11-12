@@ -18,9 +18,11 @@ import { CakeBuilderComponent } from '../cake-builder/cake-builder.component';
   styleUrls: ['./cake.component.css']
 })
 export class CakeComponent {
-  @Input() layers!: CakeLayer[];                                
+  @Input() layer!: CakeLayer[]; 
+  layers: CakeLayer[] = [];                               
   @Input() cakeBuilder!: CakeBuilderComponent;                      // Reference to parent CakeBuilder component
   
+
   constructor(public layerService: LayerService) {}
 
   get selectedLayers(): CakeLayer[] {
