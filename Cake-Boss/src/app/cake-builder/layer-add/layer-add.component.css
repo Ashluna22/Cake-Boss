@@ -1,3 +1,11 @@
+section {
+    margin-left: .2rem;
+    background-color: lightgray;
+    width: 390px;
+    padding-right: 1px;
+
+}
+
 div {
     margin-top: 5px;
 }
@@ -10,18 +18,17 @@ div .form-group {
 label {
     font-weight: bold;
     flex-shrink: 0;
-    /* Prevent shrinking of the label */
 }
 
 span {
     width: 40px;
-    /* Adjust width as needed */
     text-align: center;
 }
 
 input[type="color"] {
     flex-shrink: 0;
-    width: 83%;
+    width: 90px;
+    margin-left: 5px;
 }
 
 input[type="range"] {
@@ -32,9 +39,19 @@ div .container {
     width: 100%;
 }
 
-
 button {
     margin-right: 5px;
     margin-top: 5px;
     display: inline-block;
+}
+
+.addLayerBtn {
+    width: max-content;
+    padding-right: 158px;
+    padding-left: 157px;
+    margin: 0;
+}
+
+.colorDisplay {
+    padding-left: 3px;
 }

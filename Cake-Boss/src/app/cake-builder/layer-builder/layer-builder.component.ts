@@ -14,4 +14,5 @@ export class LayerBuilderComponent {
   @Input() layer!: CakeLayer;
   @Output() delete = new EventEmitter<void>();
   @Output() update = new EventEmitter<CakeLayer>();
+
 }

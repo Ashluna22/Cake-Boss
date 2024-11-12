@@ -1,0 +1,48 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px;
+    border: 2px solid lightgray;
+    margin-left: 3px;
+}
+
+.color-label {
+    margin-right: 10px;
+}
+
+.color-input {
+    margin-right: 10px;
+    height: 30px;
+    width: 30px;
+}
+
+.size-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.size-control {
+    display: flex;
+    align-items: center;
+}
+
+.slider {
+    margin: 0 10px;
+    flex-grow: 1;
+}
+
+.delete-btn {
+    margin-left: 20px;
+}
+
+.size-control span {
+    min-width: 25px;
+    text-align: right;
+    display: inline-block;
+}
+
+.size-control input[type="range"] {
+    margin-right: 10px;
+    flex-grow: 1;
+}
