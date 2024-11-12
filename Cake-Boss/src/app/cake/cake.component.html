@@ -1,11 +1,5 @@
-<div class="cake-container">
-  <!-- <app-cake-layer *ngFor="let layer of layers; track $Index" [layer]="layer"></app-cake-layer>  ***This is breaking things as its looking for layers that dont exist yet -->
+<div *ngFor="let layer of layers">
+  <app-cake-layer [layer]="layer"></app-cake-layer>
 </div>
 
 
-<!-- cake.component.html -->
-<div class="cake-display" [style.background]="cake.frostingColor">
-  <div *ngFor="let layer of cake.layers" class="cake-layer" [style.background]="layer.color">
-    {{ layer.flavor }}
-  </div>
-</div>

@@ -18,6 +18,7 @@ export class LayerAddComponent {
   @Output() save = new EventEmitter();
   @Output() cancel = new EventEmitter();
   showForm = false;
+
   newLayer = { color: '#ffffff', width: 5, height: 5 };
   
 
