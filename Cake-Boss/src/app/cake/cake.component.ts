@@ -8,6 +8,7 @@ import { LayerService } from '../services/layer.service';
 import { CakeLayerComponent } from './cake-layer/cake-layer.component';
 import { CommonModule } from '@angular/common';
 import { CakeLayer } from '../models/layer.model';
+import { CakeBuilderComponent } from '../cake-builder/cake-builder.component';
 
 @Component({
   selector: 'app-cake',
@@ -17,12 +18,26 @@ import { CakeLayer } from '../models/layer.model';
   styleUrls: ['./cake.component.css']
 })
 export class CakeComponent {
-  @Input() layers!: CakeLayer[];
-
+  @Input() layers!: CakeLayer[];                                
+  @Input() cakeBuilder!: CakeBuilderComponent;                      // Reference to parent CakeBuilder component
+  
   constructor(public layerService: LayerService) {}
 
   get selectedLayers(): CakeLayer[] {
     return this.layerService.getLayers();
+  }
+  // default cake display
+  cake: CakeLayer[] = [
+    {
+      color: "Yellow",
+      height: 5,
+      width: 20
+    }
+  ];
+
+  // method to update cake based on changes made from cake-builder 
+  updateCake(newCake: CakeLayer[]) {
+    this.cake = newCake;
   }
 }
 
