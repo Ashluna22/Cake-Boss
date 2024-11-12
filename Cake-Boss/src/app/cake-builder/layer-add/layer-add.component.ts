@@ -9,7 +9,7 @@ import { CakeLayer } from '../../models/layer.model';
   selector: 'app-layer-add',
   standalone: true,  // Mark as standalone
   imports: [CommonModule, FormsModule, LayerFormComponent],  // Import necessary modules
-  templateUrl: `./layer-add.component.html`,
+  templateUrl: `./layer-add.component.HTML`,
   styleUrls: ['./layer-add.component.css']
 })
 export class LayerAddComponent {
