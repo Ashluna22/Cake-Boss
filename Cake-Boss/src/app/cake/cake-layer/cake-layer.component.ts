@@ -6,6 +6,7 @@ import { CakeLayer } from '../../models/layer.model';
 @Component({
   selector: 'app-cake-layer',
   standalone: true,
+  
   templateUrl: `./cake-layer.component.html`,
   styleUrls: [`./cake-layer.component.css`]
 })
