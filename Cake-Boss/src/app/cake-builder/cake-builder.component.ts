@@ -1,4 +1,3 @@
-// src/app/cake-builder/cake-builder.component.ts
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { CakeLayer } from '../models/layer.model';
