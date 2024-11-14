@@ -20,6 +20,10 @@ export class CakeBuilderComponent {
   @Input() layer!: CakeLayer;
   layers: CakeLayer[] = [];
 
+  get reversedLayers(): CakeLayer[]{
+    return this.layers.reverse();
+  }
+
   constructor(private layerService: LayerService) {
     this.layers = this.layerService.getLayers();
 }

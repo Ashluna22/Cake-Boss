@@ -30,7 +30,7 @@ export class LayerAddComponent {
   submitLayer() {
     const layerCopy = {...this.newLayer };
     this.addLayer.emit(layerCopy);
-    this.layers.push(layerCopy);
+    this.layers.push(layerCopy);   // added unshift command to array to force elements to add to the top of the array
     this.newLayer = { color: '#ffffff', width: 5, height: 5 };
     this.toggleForm();
   }
