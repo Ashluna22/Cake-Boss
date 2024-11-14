@@ -4,6 +4,7 @@
   align-items: center;
   padding: 20px;
   background-color: #00b7ff;
+  gap: 0;
 }
 
 .cake-display {

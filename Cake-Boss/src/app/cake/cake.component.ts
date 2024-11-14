@@ -25,6 +25,9 @@ export class CakeComponent {
   get selectedLayers(): CakeLayer[] {
     return this.layerService.getLayers();
   }
+  get reversedLayers(): CakeLayer[]{
+    return this.layers.reverse();
+  }
   // default cake display
   cake: CakeLayer[] = [
     {
