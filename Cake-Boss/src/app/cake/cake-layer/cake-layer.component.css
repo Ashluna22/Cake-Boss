@@ -26,20 +26,3 @@
     transform: scale(1.05);
     cursor: pointer;
 }
-
-/* colors */
-.vanilla {
-    background-color: #fff5e6;
-    border: 2px solid #ffe0b3;
-}
-
-.chocolate {
-    background-color: #4a2100;
-    border: 2px solid #2b1300;
-    color: white;
-}
-
-.strawberry {
-    background-color: #ffccd5;
-    border: 2px solid #ff99aa;
-}
