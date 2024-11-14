@@ -1,19 +1,17 @@
-<div class="builder-container">
-  <div class="builder-panel">
+<div class="container">
+  <div class="left-panel">
     <h3>Add A Layer</h3>
     <app-layer-add (addLayer)="addLayer($event)"></app-layer-add>
-
-    <div *ngFor="let layer of layers; let i = index" class="layer-controls">
+    <div *ngFor="let layer of layers; let i = index">
       <app-layer-builder
         [layer]="layer"
         (delete)="deleteLayer(i)"
-        (update)="updateLayer(i, $event)"
-      >
+        (update)="updateLayer(i, $event)">
       </app-layer-builder>
     </div>
   </div>
 
-  <div class="cake-preview">
+  <div class="right-panel">
     <app-cake [layers]="layers"></app-cake>
   </div>
 </div>
